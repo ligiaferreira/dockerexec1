@@ -1,0 +1,6 @@
+sudo: required
+services:
+  -docker
+script:
+  - docker build -t ligiaisabel/node .
+  - docker images ligiaisabel/node
