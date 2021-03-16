@@ -1,6 +1,13 @@
 sudo: required
 services:
-  -docker
+  - docker
 script:
   - docker build -t ligiaisabel/node .
   - docker images ligiaisabel/node
+before_deploy:
+  - docker login -u ligiaisabel -p LOG02!pwd
+deploy:
+  provider: script
+  script: docker push ligiaisabel/node
+  on:
+    branch: master
